@@ -1,0 +1,111 @@
+
+
+<!-- <h1>{{disciplina}}</h1>
+<h1>{{soma}}</h1>
+
+<form>
+    <input type="text" name="nome" [(ngModel)]="nome">
+    <input type="number" name="data" [(ngModel)]="data">
+    <button type="button" name="button" (click)="hello()"> ok</button>
+    <input type="text"></input>
+
+</form> -->
+
+<!-- <form>    
+    <br><br>
+    
+        Digite o primeiro valor: <input type="text" [(ngModel)]="value1" />
+        Digite o segundo valor: <input type="text" [(ngModel)]="value2" />
+
+        <select [(ngModel)]="operacao">
+            <option value="soma">Soma</option>
+            <option value="sub">Sub</option>
+            <option value="mult">Multiplicação</option>
+            <option value="div">Divisão</option>
+        </select>
+        <button type="button" name="button" (click)="execute()"> ok</button> 
+        <p>Resultado:</p>-->
+        
+        <div class="container">
+            <br><br><br>
+            <h3>Calculadora de números</h3>
+
+            <div class="row">
+                <div class="col">
+                    <input type="number" [(ngModel)]="value1" class="form-control"/>
+                </div>
+                <div class="col">
+                     <input type="number" [(ngModel)]="value2" class="form-control" />
+                </div>
+                <div class="col2">
+                    <button type="button" name="button" (click)="somar()" class="btn btn-outline-primary"> +</button>
+                </div>
+                 <div >
+                    <button type="button" name="button" (click)="sub()" class="btn btn-outline-primary"> -</button>
+                 </div>
+                <div >
+                    <button type="button" name="button" (click)="div()"class="btn btn-outline-primary"> /</button>
+               </div>
+               <div >
+                <button type="button" name="button" (click)="mult()" class="btn btn-outline-primary"> *</button>
+               </div>
+            </div>
+            <br><br><br>
+            <h3 class="text-center">Resultado: <b>{{result}}</b></h3>
+           
+        
+        
+        </div>
+<!-- </form> -->
+<br><br><br>
+
+<div class="container">
+
+    <div class="row">
+        <div class="col">
+            <input type="number" [(ngModel)]="nota1" class="form-control" />
+        </div>
+        <div class="col">
+            <input type="number" [(ngModel)]="nota2" class="form-control" />
+        </div>
+        <div class="col">
+         <input type="number" [(ngModel)]="nota3" class="form-control" />
+       </div>
+         <div class="col">
+             <input type="number" [(ngModel)]="nota4" class="form-control" />
+        </div>
+         <div class="col2">
+            <button type="button" name="button" (click)="media()" class="btn btn-outline-primary"> Calcular média</button>
+         </div>
+
+    </div>
+    <br><br><br>
+    <h3>Calculadora de média</h3>
+    <h3 class="text-center">Resultado: <b>{{totalMedia}}</b></h3>
+
+
+
+
+    <div class="container">
+    
+        <div class="row">
+            <div class="col">
+                <input type="number" [(ngModel)]="peso" class="form-control" step="0.010"/>
+            </div>
+            <div class="col">
+                <input type="number" [(ngModel)]="altura" class="form-control" step="0.010"/>
+            </div>
+
+            <div class="col2">
+                <button type="button" name="button" (click)="calcularImc()" class="btn btn-outline-primary">
+                    calcular</button>
+            </div>
+    
+        </div>
+        <br><br><br>
+        <h3>Calculadora de IMC</h3>
+        <h3 class="text-center">Resultado: <b>{{imc}}</b></h3>
+
+
+
+</div>

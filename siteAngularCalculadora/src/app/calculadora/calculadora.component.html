@@ -1,0 +1,38 @@
+
+        <div class="container">
+            <br><br><br>
+            <h3>Calculadora de números</h3>
+
+            <div class="row">
+                <div class="col">
+                    <input type="number" [(ngModel)]="value1" class="form-control"/>
+                </div>
+                <div class="col">
+                     <input type="number" [(ngModel)]="value2" class="form-control" />
+                </div>
+                <div class="col2">
+                    <button type="button" name="button" (click)="somar()" class="btn btn-outline-primary"> +</button>
+                </div>
+                 <div >
+                    <button type="button" name="button" (click)="sub()" class="btn btn-outline-primary"> -</button>
+                 </div>
+                <div >
+                    <button type="button" name="button" (click)="div()"class="btn btn-outline-primary"> /</button>
+               </div>
+               <div >
+                <button type="button" name="button" (click)="mult()" class="btn btn-outline-primary"> *</button>
+               </div>
+               
+                        <div>
+                            <button type="button" name="button" (click)="mult()" class="btn btn-outline-primary"> *</button>
+                        </div>
+            </div>
+            <br><br><br>
+            <h3 class="text-center">Resultado: <b>{{result}}</b></h3>
+           
+        
+        
+        </div>
+<!-- </form> -->
+<br><br><br>
+
