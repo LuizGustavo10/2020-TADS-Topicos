@@ -1,0 +1,20 @@
+<!-- Para carregar o modelo -->
+{% extends 'paginas/modelo.html' %}
+<!-- Para carregar a imagem -->
+{% load static %}
+
+
+<!-- colocar apenas o que vai substuir do modelo de base -->
+{% block titulo %}
+<title>Sobre o Projeto</title>
+{% endblock %}
+<!-- para excluir um desses modulos -->
+{% block destaque %}
+    <!-- só não colocar nada dentro -->
+{% endblock %}
+<!-- para substituir o conteudo -->
+{% block conteudo %}
+    <h3>Sobre o sistema</h3>
+    <p>Está páginas vai descrever nosso projeto</p>
+    <img src="{% static 'img/jogo.jpg' %}" width="600" class="img-fluid">
+{% endblock %}
