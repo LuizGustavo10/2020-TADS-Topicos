@@ -1,0 +1,47 @@
+<!-- Para carregar o modelo -->
+{% extends 'paginas/modelo.html' %}
+<!-- Para carregar a imagem -->
+{% load static %}
+
+
+<!-- colocar apenas o que vai substuir do modelo de base -->
+{% block titulo %}
+<title>Cadastro de Pessoa</title>
+{% endblock %}
+<!-- para excluir um desses modulos -->
+{% block destaque %}
+    <!-- só não colocar nada dentro -->
+{% endblock %}
+<!-- para substituir o conteudo -->
+{% block conteudo %}
+    <h3>Cadastro de Funcionario</h3>
+    <p>insira os dados de Funcionario</p>
+
+    <form>
+        <div class="form-group">
+          <label for="nome">Nome</label>
+          <input type="text" class="form-control" id="endereco" placeholder="Insira o nome">
+        </div>
+        <div class="form-group">
+          <label for="endereco">Endereço</label>
+          <input type="text" class="form-control" id="endereco" placeholder="Insira o endereço">
+        </div>
+        <div class="form-group">
+            <label for="endereco">Telefone</label>
+            <input type="number" class="form-control" id="telefone" placeholder="Insira o telefone">
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" class="form-control" id="email" placeholder="Insira o email">
+        </div>
+        <div class="form-group">
+            <label for="cpf">CPF</label>
+            <input type="cpf" class="form-control" id="cpf" placeholder="Insira o cpf">
+        </div>
+        <div class="form-group">
+            <label for="dtNasc">Data de Nascimento</label>
+            <input class="form-control" type="date" id="dtNasc">
+        </div>
+      </form>
+     
+{% endblock %}
