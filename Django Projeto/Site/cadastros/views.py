@@ -7,55 +7,64 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 
 # Create your views here.
-class FuncionarioCreate(CreateView):
+class FuncionarioCreate(LoginRequiredMixin, CreateView):
+    login_url = reverse_lazy('login')
     model = Funcionario
     fields = ['nome','endereco','telefone', 'email', 'cpf']
     template_name = 'cadastros/form.html'
     success_url = reverse_lazy('index')
 
-class PessoaCreate(CreateView):
+class PessoaCreate(LoginRequiredMixin, CreateView):
+    login_url = reverse_lazy('login')
     model = Pessoa
     fields = ['nome','endereco','telefone', 'email', 'cpf']
     template_name = 'cadastros/form.html'
     success_url = reverse_lazy('index')
 
-class FichaCreate(CreateView):
+class FichaCreate(LoginRequiredMixin, CreateView):
+    login_url = reverse_lazy('login')
     model = Ficha
     fields = ['data','qtd','funcionario', 'pessoa']
     template_name = 'cadastros/form.html'
     success_url = reverse_lazy('index')
 
 ####UPDATE#########################################################################
-class PessoaUpdate(UpdateView):
+class PessoaUpdate(LoginRequiredMixin, UpdateView):
+    login_url = reverse_lazy('login')
     model = Pessoa
     fields = ['nome','endereco','telefone', 'email', 'cpf']
     template_name = 'cadastros/form.html'
     success_url = reverse_lazy('listar-pessoa')
 
-class FuncionarioUpdate(UpdateView):
+class FuncionarioUpdate(LoginRequiredMixin, UpdateView):
+    login_url = reverse_lazy('login')
     model = Funcionario
     fields = ['nome','endereco','telefone', 'email', 'cpf']
     template_name = 'cadastros/form.html'
     success_url = reverse_lazy('listar-funcinario')
 
-class FichaUpdate(UpdateView):
+class FichaUpdate(LoginRequiredMixin, UpdateView):
+    login_url = reverse_lazy('login')
     model = Ficha
     fields = ['data','qtd','funcionario', 'pessoa']
     template_name = 'cadastros/form.html'
     success_url = reverse_lazy('listar-ficha')
 
     ### DELETE ###################################################################
-class PessoaDelete(DeleteView):
+class PessoaDelete(LoginRequiredMixin, DeleteView):
+        login_url = reverse_lazy('login')
         model = Pessoa
         template_name = 'cadastros/form-excluir.html'
         success_url = reverse_lazy('listar-pessoa')
 
-class FuncionarioDelete(DeleteView):
+class FuncionarioDelete(LoginRequiredMixin, DeleteView):
+        login_url = reverse_lazy('login')
         model = Funcionario
         template_name = 'cadastros/form-excluir.html'
         success_url = reverse_lazy('listar-funcinario')
 
-class FichaDelete(DeleteView):
+class FichaDelete(LoginRequiredMixin, DeleteView):
+        login_url = reverse_lazy('login')
         model = Ficha
         template_name = 'cadastros/form-excluir.html'
         success_url = reverse_lazy('listar-ficha')
@@ -63,14 +72,17 @@ class FichaDelete(DeleteView):
         ### LISTAR ###################################################################
 
 class PessoaList(LoginRequiredMixin, ListView):
+    login_url = reverse_lazy('login')
     model = Pessoa
     template_name = 'cadastros/listas/pessoa.html'
 
 class FuncionarioList(LoginRequiredMixin, ListView):
+    login_url = reverse_lazy('login')
     model = Funcionario
     template_name = 'cadastros/listas/funcionario.html'
 
 class FichaList(LoginRequiredMixin, ListView):
+    login_url = reverse_lazy('login')
     model = Ficha
     template_name = 'cadastros/listas/ficha.html'
 
