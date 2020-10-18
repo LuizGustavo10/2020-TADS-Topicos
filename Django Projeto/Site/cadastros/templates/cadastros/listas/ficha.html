@@ -1,0 +1,43 @@
+<!-- Para carregar o modelo -->
+{% extends 'paginas/modelo.html' %}
+<!-- Para carregar a imagem -->
+{% load static %}
+
+{% block conteudo %}
+    <h3>Lista de fichas </h3>
+<hr>
+<div class="table-responsive">
+
+    <table class="table table-striped">
+        <tr>
+            <th>Data</th>
+            <th>Qtd</th>
+            <th>Funcionario</th>
+            <th>Cliente</th>
+            <th>Opções</th>
+
+        </tr>
+
+        {% for ficha in object_list %}
+        <tr>
+            <td>{{ ficha.data }}</td>
+            <td> {{ ficha.qtd }} </td>
+            <td> {{ ficha.funcionario.nome }} </td>
+            <td> {{ ficha.pessoa.nome }} </td>
+
+            <td> 
+                <a href="{% url 'editar-ficha' ficha.pk %}" class="btn btn-warning btn-sm">Editar</a>
+                <a href="{% url 'excluir-ficha' ficha.pk %}" class="btn btn-danger btn-sm">Excluir</a>
+             </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="3">Nenhuma ficha registrada!</td>
+        </tr>
+        {% endfor %}
+
+    </table>
+</div>
+   
+     
+{% endblock %}
