@@ -3,7 +3,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.list import ListView
 
 from .models import Funcionario, Pessoa, Ficha
-
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 
 # Create your views here.
@@ -62,15 +62,15 @@ class FichaDelete(DeleteView):
 
         ### LISTAR ###################################################################
 
-class PessoaList(ListView):
+class PessoaList(LoginRequiredMixin, ListView):
     model = Pessoa
     template_name = 'cadastros/listas/pessoa.html'
 
-class FuncionarioList(ListView):
+class FuncionarioList(LoginRequiredMixin, ListView):
     model = Funcionario
     template_name = 'cadastros/listas/funcionario.html'
 
-class FichaList(ListView):
+class FichaList(LoginRequiredMixin, ListView):
     model = Ficha
     template_name = 'cadastros/listas/ficha.html'
 

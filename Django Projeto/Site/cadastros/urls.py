@@ -2,6 +2,7 @@ from django.urls import path
 from .views import FuncionarioCreate, PessoaCreate, FuncionarioUpdate, PessoaUpdate, FichaCreate, FichaUpdate
 from .views import PessoaDelete, FuncionarioDelete, FichaDelete
 from .views import PessoaList, FuncionarioList, FichaList
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 urlpatterns = [
     path('cadastrar/funcionario/', FuncionarioCreate.as_view(), name="cadastrar-funcionario"),
