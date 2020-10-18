@@ -39,10 +39,16 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'paginas.apps.PaginasConfig', #alterei aqui o nome da config
     'cadastros.apps.CadastrosConfig',
+    'usuarios.apps.UsuariosConfig',
     'crispy_forms',
 ]
 #crispy forms
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+#Configurações de Autenticação
+LOGIN_REDIRECT_URL = 'index'
+LOGIN_URL = 'login'
+LOGOUT_REDIRECT_URL = 'login'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
