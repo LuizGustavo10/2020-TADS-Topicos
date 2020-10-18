@@ -3,20 +3,20 @@ from django.db import models
 # Create your models here.
 class Pessoa(models.Model):
     nome = models.CharField(max_length=50)
-    endereco = models.CharField(max_length=50, verbose_name="Endereço")
+    endereco = models.CharField(max_length=50, verbose_name="Endereço", unique=True)
     telefone = models.IntegerField()
-    email = models.CharField(max_length=50)
-    cpf = models.IntegerField()
+    email = models.CharField(max_length=50, unique=True)
+    cpf = models.IntegerField(unique=True)
 
     def __str__(self):
         return "{} ({})".format(self.nome, self.endereco)
 
 class Funcionario(models.Model):
     nome = models.CharField(max_length=50)
-    endereco = models.CharField(max_length=50, verbose_name="Endereço")
+    endereco = models.CharField(max_length=50, verbose_name="Endereço", unique=True)
     telefone = models .IntegerField()
-    email = models.CharField(max_length=50)
-    cpf = models.IntegerField()
+    email = models.CharField(max_length=50, unique=True)
+    cpf = models.IntegerField(unique=True)
 
     def __str__(self):
         return "{} ({})".format(self.nome, self.endereco)
