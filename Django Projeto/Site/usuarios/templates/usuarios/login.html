@@ -22,7 +22,15 @@
 
 <div class="row">
     <div class="col-md-4 mx-auto">
+        <br><br><br><br>
         
+        {% if request.user.is_authenticated %}
+        <h3>Ação não permitida </h3>
+        <hr>
+         <p class="lead">
+            Houve algum probelma para processar a ação desejada ou você não tem permissão para isso.
+        </p>
+        {% else %}
         <h3>Autenticação </h3>
         <p>Preencha os dados de login</p>
 
@@ -34,7 +42,7 @@
             <button type="submit" class="btn btn-primary">Entrar</button>
           </form>
     </div>
-    
+    {% endif %}
 </div>
 
      

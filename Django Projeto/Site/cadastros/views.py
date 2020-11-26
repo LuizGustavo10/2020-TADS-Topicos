@@ -6,9 +6,13 @@ from .models import Funcionario, Pessoa, Ficha
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 
+from django.contrib.auth.mixins import LoginRequiredMixin
+from braces.views import GroupRequiredMixin
+
 # Create your views here.
-class FuncionarioCreate(LoginRequiredMixin, CreateView):
+class FuncionarioCreate(GroupRequiredMixin, LoginRequiredMixin, CreateView):
     login_url = reverse_lazy('login')
+    group_required = u"Administrador"
     model = Funcionario
     fields = ['nome','endereco','telefone', 'email', 'cpf']
     template_name = 'cadastros/form.html'
@@ -36,8 +40,9 @@ class PessoaUpdate(LoginRequiredMixin, UpdateView):
     template_name = 'cadastros/form.html'
     success_url = reverse_lazy('listar-pessoa')
 
-class FuncionarioUpdate(LoginRequiredMixin, UpdateView):
+class FuncionarioUpdate(GroupRequiredMixin, LoginRequiredMixin, UpdateView):
     login_url = reverse_lazy('login')
+    group_required = u"Administrador"
     model = Funcionario
     fields = ['nome','endereco','telefone', 'email', 'cpf']
     template_name = 'cadastros/form.html'
@@ -57,8 +62,9 @@ class PessoaDelete(LoginRequiredMixin, DeleteView):
         template_name = 'cadastros/form-excluir.html'
         success_url = reverse_lazy('listar-pessoa')
 
-class FuncionarioDelete(LoginRequiredMixin, DeleteView):
+class FuncionarioDelete(GroupRequiredMixin, LoginRequiredMixin, DeleteView):
         login_url = reverse_lazy('login')
+        group_required = u"Administrador"
         model = Funcionario
         template_name = 'cadastros/form-excluir.html'
         success_url = reverse_lazy('listar-funcinario')
