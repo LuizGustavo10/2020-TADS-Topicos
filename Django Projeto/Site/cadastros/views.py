@@ -107,3 +107,10 @@ class FichaList(LoginRequiredMixin, ListView):
     model = Ficha
     template_name = 'cadastros/listas/ficha.html'
 
+    #aula 21
+    # def get_queryset(self):
+    #     ##padrao self.object_list = ficha.objects.all()
+    #     #registros por usuario
+    #     self.object_list = ficha.objects.filter(usuario=self.request.user)
+    #     return self.object_list
+
