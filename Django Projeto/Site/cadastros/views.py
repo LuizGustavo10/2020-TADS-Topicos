@@ -32,6 +32,13 @@ class FichaCreate(LoginRequiredMixin, CreateView):
     template_name = 'cadastros/form.html'
     success_url = reverse_lazy('index')
 
+    def form_valid(self, form):
+        #objeto não criado
+        form.instance.usuario = self.request.user
+        url= super().form_valid(form)
+        #objeto criado
+        return url
+
 ####UPDATE#########################################################################
 class PessoaUpdate(LoginRequiredMixin, UpdateView):
     login_url = reverse_lazy('login')

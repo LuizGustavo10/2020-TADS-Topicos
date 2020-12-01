@@ -23,8 +23,10 @@ class Funcionario(models.Model):
         return "{} ({})".format(self.nome, self.endereco)
 
 class Ficha(models.Model):
+    
     data = models.CharField(max_length=50)
     qtd = models .IntegerField()
+    usuario = models.ForeignKey(User, on_delete=models.PROTECT)
 
     funcionario = models.ForeignKey(Funcionario, on_delete = models.PROTECT)
     pessoa = models.ForeignKey(Pessoa, on_delete = models.PROTECT)
