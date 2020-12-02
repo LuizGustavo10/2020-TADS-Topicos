@@ -8,6 +8,7 @@ from django.urls import reverse_lazy
 
 from django.contrib.auth.mixins import LoginRequiredMixin
 from braces.views import GroupRequiredMixin
+from django.shortcuts import get_object_or_404
 
 # Create your views here.
 class FuncionarioCreate(GroupRequiredMixin, LoginRequiredMixin, CreateView):
@@ -70,6 +71,13 @@ class FichaUpdate(LoginRequiredMixin, UpdateView):
     template_name = 'cadastros/form.html'
     success_url = reverse_lazy('listar-ficha')
 
+    # #aula 22---------------------------------------------------
+    # def get_object(self, queryset=None):
+    #     get_object_or_404(Classe, atr="isso", atr2=val2 )
+    #     #self.object = Ficha.objects.get(pk=self.kwargs['pk'], usuario=self.request.user)
+    #     self.object = get_object_or_404(Ficha, pk=self.kwargs['pk'], usuario=self.request.user)
+    #     return self.object
+
     ### DELETE ###################################################################
 class PessoaDelete(LoginRequiredMixin, DeleteView):
         login_url = reverse_lazy('login')
@@ -89,6 +97,13 @@ class FichaDelete(LoginRequiredMixin, DeleteView):
         model = Ficha
         template_name = 'cadastros/form-excluir.html'
         success_url = reverse_lazy('listar-ficha')
+
+    #         #aula 22---------------------------------------------------
+    # def get_object(self, queryset=None):
+    #     get_object_or_404(Classe, atr="isso", atr2=val2 )
+    #     #self.object = Ficha.objects.get(pk=self.kwargs['pk'], usuario=self.request.user)
+    #     self.object = get_object_or_404(Ficha, pk=self.kwargs['pk'], usuario=self.request.user)
+    #     return self.object
 
         ### LISTAR ###################################################################
 
