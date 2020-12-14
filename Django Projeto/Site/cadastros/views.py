@@ -71,12 +71,12 @@ class FichaUpdate(LoginRequiredMixin, UpdateView):
     template_name = 'cadastros/form.html'
     success_url = reverse_lazy('listar-ficha')
 
-    # #aula 22---------------------------------------------------
-    # def get_object(self, queryset=None):
-    #     get_object_or_404(Classe, atr="isso", atr2=val2 )
-    #     #self.object = Ficha.objects.get(pk=self.kwargs['pk'], usuario=self.request.user)
-    #     self.object = get_object_or_404(Ficha, pk=self.kwargs['pk'], usuario=self.request.user)
-    #     return self.object
+    # #aula 22-----------o usuario tal só ve os cadastros dele----------------------------------------
+    def get_object(self, queryset=None):
+        # get_object_or_404(Classe, atr="isso", atr2=val2 )
+        #self.object = Ficha.objects.get(pk=self.kwargs['pk'], usuario=self.request.user)
+        self.object = get_object_or_404(Ficha, pk=self.kwargs['pk'], usuario=self.request.user)
+        return self.object
 
     ### DELETE ###################################################################
 class PessoaDelete(LoginRequiredMixin, DeleteView):
@@ -97,13 +97,13 @@ class FichaDelete(LoginRequiredMixin, DeleteView):
         model = Ficha
         template_name = 'cadastros/form-excluir.html'
         success_url = reverse_lazy('listar-ficha')
+        #aula22
+        def get_object(self, queryset=None):
+        # get_object_or_404(Classe, atr="isso", atr2=val2 )
+        #self.object = Ficha.objects.get(pk=self.kwargs['pk'], usuario=self.request.user)
+            self.object = get_object_or_404(Ficha, pk=self.kwargs['pk'], usuario=self.request.user)
+            return self.object
 
-    #         #aula 22---------------------------------------------------
-    # def get_object(self, queryset=None):
-    #     get_object_or_404(Classe, atr="isso", atr2=val2 )
-    #     #self.object = Ficha.objects.get(pk=self.kwargs['pk'], usuario=self.request.user)
-    #     self.object = get_object_or_404(Ficha, pk=self.kwargs['pk'], usuario=self.request.user)
-    #     return self.object
 
         ### LISTAR ###################################################################
 
@@ -122,10 +122,10 @@ class FichaList(LoginRequiredMixin, ListView):
     model = Ficha
     template_name = 'cadastros/listas/ficha.html'
 
-    #aula 21
-    # def get_queryset(self):
+    #aula 21-------------------o usuario tal só ve os cadastros dele-------------------------------
+    def get_queryset(self):
     #     ##padrao self.object_list = ficha.objects.all()
     #     #registros por usuario
-    #     self.object_list = ficha.objects.filter(usuario=self.request.user)
-    #     return self.object_list
+        self.object_list = Ficha.objects.filter(usuario=self.request.user)
+        return self.object_list
 
