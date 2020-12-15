@@ -5,9 +5,9 @@ from django.contrib.auth.models import User
 class Pessoa(models.Model):
     nome = models.CharField(max_length=50)
     endereco = models.CharField(max_length=50, verbose_name="Endereço", unique=True)
-    telefone = models.IntegerField()
+    telefone = models.CharField(max_length=50)
     email = models.CharField(max_length=50, unique=True)
-    cpf = models.IntegerField(unique=True)
+    cpf = models.CharField(max_length=50)
 
     def __str__(self):
         return "{} ({})".format(self.nome, self.endereco)
@@ -15,9 +15,9 @@ class Pessoa(models.Model):
 class Funcionario(models.Model):
     nome = models.CharField(max_length=50)
     endereco = models.CharField(max_length=50, verbose_name="Endereço", unique=True)
-    telefone = models .IntegerField()
+    telefone = models.CharField(max_length=50)
     email = models.CharField(max_length=50, unique=True)
-    cpf = models.IntegerField(unique=True)
+    cpf = models.CharField(max_length=50)
 
     def __str__(self):
         return "{} ({})".format(self.nome, self.endereco)

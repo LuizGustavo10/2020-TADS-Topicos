@@ -18,3 +18,11 @@
     <p>Está páginas vai descrever nosso projeto</p>
     <img src="{% static 'img/jogo.jpg' %}" width="600" class="img-fluid">
 {% endblock %}
+
+{% block scripts %}
+<script> 
+   $(document).ready(function(){
+    alert("importação Jquerry Ok");
+   });
+</script>
+{% endblock %}
