@@ -8,7 +8,8 @@
 <hr>
 <div class="table-responsive">
 
-    <table class="table table-striped">
+    <table class="table table-striped" id="tabela_pessoa">
+        <thead>
         <tr>
             <th>Nome</th>
             <th>Endereço</th>
@@ -17,7 +18,8 @@
             <th>Cpf</th>
             <th>Opções</th>
         </tr>
-
+    </thead>
+    <tbody>
         {% for pessoa in object_list %}
         <tr>
             <td>{{ pessoa.nome }}</td>
@@ -35,9 +37,19 @@
             <td colspan="3">Nenhuma pessoa registrada!</td>
         </tr>
         {% endfor %}
-
+    </tbody>
     </table>
 </div>
    
      
+{% endblock %}
+{% block scripts %}
+
+<script> 
+   $(document).ready(function(){
+    $("#tabela_pessoa").DataTable();
+    
+   
+   });
+</script>
 {% endblock %}
