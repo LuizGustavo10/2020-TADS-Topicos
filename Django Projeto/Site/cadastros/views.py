@@ -19,6 +19,12 @@ class FuncionarioCreate(GroupRequiredMixin, LoginRequiredMixin, CreateView):
     template_name = 'cadastros/form.html'
     success_url = reverse_lazy('index')
 
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context['titulo'] = " Cadastro de Funcionário"
+        return context
+
+
 class PessoaCreate(LoginRequiredMixin, CreateView):
     login_url = reverse_lazy('login')
     model = Pessoa
@@ -26,11 +32,10 @@ class PessoaCreate(LoginRequiredMixin, CreateView):
     template_name = 'cadastros/form.html'
     success_url = reverse_lazy('index')
 
-    #def form_valid(self, form):
-
-        #antes do super objeto ainda não criado
-      #  url = super().form_valid(form)
-      #  return url
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context['titulo'] = " Cadastro de Pessoa"
+        return context
 
 class FichaCreate(LoginRequiredMixin, CreateView):
     login_url = reverse_lazy('login')
@@ -38,6 +43,12 @@ class FichaCreate(LoginRequiredMixin, CreateView):
     fields = ['data','qtd','funcionario', 'pessoa']
     template_name = 'cadastros/form.html'
     success_url = reverse_lazy('index')
+
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context['titulo'] = " Cadastro de Ficha"
+        return context
+
 
     def form_valid(self, form):
         #objeto não criado
@@ -56,6 +67,12 @@ class PessoaUpdate(LoginRequiredMixin, UpdateView):
     template_name = 'cadastros/form.html'
     success_url = reverse_lazy('listar-pessoa')
 
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context['titulo'] = " Edição de Pessoa"
+        return context
+
+
 class FuncionarioUpdate(GroupRequiredMixin, LoginRequiredMixin, UpdateView):
     login_url = reverse_lazy('login')
     group_required = u"Administrador"
@@ -64,12 +81,24 @@ class FuncionarioUpdate(GroupRequiredMixin, LoginRequiredMixin, UpdateView):
     template_name = 'cadastros/form.html'
     success_url = reverse_lazy('listar-funcinario')
 
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context['titulo'] = " Cadastro de Funcionário"
+        return context
+
+
 class FichaUpdate(LoginRequiredMixin, UpdateView):
     login_url = reverse_lazy('login')
     model = Ficha
     fields = ['data','qtd','funcionario', 'pessoa']
     template_name = 'cadastros/form.html'
     success_url = reverse_lazy('listar-ficha')
+
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context['titulo'] = " Cadastro de Ficha"
+        return context
+
 
     # #aula 22-----------o usuario tal só ve os cadastros dele----------------------------------------
     def get_object(self, queryset=None):
