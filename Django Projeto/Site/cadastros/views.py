@@ -28,8 +28,8 @@ class FuncionarioCreate(GroupRequiredMixin, LoginRequiredMixin, CreateView):
 class PessoaCreate(LoginRequiredMixin, CreateView):
     login_url = reverse_lazy('login')
     model = Pessoa
-    fields = ['nome','endereco','telefone', 'email', 'cpf']
-    template_name = 'cadastros/form.html'
+    fields = ['nome','endereco','telefone', 'email', 'cpf', 'arquivo']
+    template_name = 'cadastros/form-upload.html'
     success_url = reverse_lazy('index')
 
     def get_context_data(self, *args, **kwargs):
@@ -63,8 +63,8 @@ class FichaCreate(LoginRequiredMixin, CreateView):
 class PessoaUpdate(LoginRequiredMixin, UpdateView):
     login_url = reverse_lazy('login')
     model = Pessoa
-    fields = ['nome','endereco','telefone', 'email', 'cpf']
-    template_name = 'cadastros/form.html'
+    fields = ['nome','endereco','telefone', 'email', 'cpf', 'arquivo']
+    template_name = 'cadastros/form-upload.html'
     success_url = reverse_lazy('listar-pessoa')
 
     def get_context_data(self, *args, **kwargs):

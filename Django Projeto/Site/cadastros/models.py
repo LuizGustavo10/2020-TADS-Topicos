@@ -8,6 +8,7 @@ class Pessoa(models.Model):
     telefone = models.CharField(max_length=50)
     email = models.CharField(max_length=50, unique=True)
     cpf = models.CharField(max_length=50)
+    arquivo = models.FileField(upload_to='pdf/')
 
     def __str__(self):
         return "{} ({})".format(self.nome, self.endereco)
