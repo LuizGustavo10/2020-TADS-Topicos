@@ -150,11 +150,11 @@ class FichaList(LoginRequiredMixin, ListView):
     login_url = reverse_lazy('login')
     model = Ficha
     template_name = 'cadastros/listas/ficha.html'
-
+    #ta funcionando, só desabilitei pq não tem necessidade
     #aula 21-------------------o usuario tal só ve os cadastros dele-------------------------------
-    def get_queryset(self):
-    #     ##padrao self.object_list = ficha.objects.all()
-    #     #registros por usuario
-        self.object_list = Ficha.objects.filter(usuario=self.request.user)
-        return self.object_list
+    # def get_queryset(self):
+    # #     ##padrao self.object_list = ficha.objects.all()
+    # #     #registros por usuario
+    #     self.object_list = Ficha.objects.filter(usuario=self.request.user)
+    #     return self.object_list
 
